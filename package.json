@@ -1,0 +1,17 @@
+{
+  "name": "jscrawler",
+  "version": "1.0.0",
+  "description": "JS crawler. Input format: (url) (keyword) (depth of crawling)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "kwf": "./index.js"
+  },
+  "author": "Tetiana Larina",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
