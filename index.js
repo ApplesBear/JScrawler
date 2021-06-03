@@ -81,7 +81,9 @@ async function getHTML(url) {
 }
 
 function searchLinks(html) {
-  let domain = site.match(new RegExp('(?<=//|//www.)[^./]+', 'g'));
+  let domain = site.match(
+    new RegExp('(?<=//www.)[^./]+', 'g') || new RegExp('(?<=//)[^./]+', 'g')
+  );
   let keyReg = new RegExp(
     `(?<=href=["'])(${site.match(new RegExp('^[^:.]+[:.]', 'g'))}[^"']+)`,
     'gim'
@@ -96,12 +98,11 @@ function searchLinks(html) {
         linksFound[j].match(
           new RegExp(`\/\/${domain}|\/\/[^.\/]+\.${domain}`, 'g')
         )
-      )
-        console.log('domain');
-      links.push(linksFound[j]);
+      ) {
+        links.push(linksFound[j]);
+      }
     }
   }
-
   return links;
 }
 
