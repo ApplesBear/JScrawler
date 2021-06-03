@@ -53,8 +53,6 @@ function searchKey(url, html) {
 
   if (html === null) return [null];
   html = html
-    .match(new RegExp('(?<=<body[^>]*>)[^]*', 'gmi'))
-    .join('')
     .split(new RegExp('<[^>]*>', 'gmi'))
     .filter((item) => item.length >= key.length);
 
@@ -89,10 +87,6 @@ function searchLinks(html) {
     'gim'
   );
   let links = [];
-
-  html = html
-    .match(new RegExp('(?<=<body[^>]*>)[^]*(?=</body[^>]*>)', 'gmi'))
-    .join('');
 
   let linksFound = html.match(keyReg);
 
